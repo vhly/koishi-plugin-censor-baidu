@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-censor-baidu",
   "description": "Content censor middleware with Baidu ContentCensor service for koishi bot",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "contributors": [
     "Zhang Xiaohe <vhly@163.com>"
   ],
@@ -25,7 +25,11 @@
   "dependencies": {
     "baidu-aip-sdk": "^4.16.12"
   },
-
+  "homepage": "https://github.com/vhly/koishi-plugin-censor-baidu",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vhly/koishi-plugin-censor-baidu.git"
+  },
   "koishi": {
     "description": {
       "en": "Content censor middleware with Baidu ContentCensor service",
