@@ -20,34 +20,7 @@ export const Config: Schema<Config> = Schema.object({
 
 export function apply(ctx: Context, config:Config) {
 
-
   var contentCensorClient = new AipContentCensorClient(config.app_id, config.api_key, config.api_secret);
-
-  // // 如果收到“天王盖地虎”，就回应“宝塔镇河妖”
-  // ctx.on('message', (session) => {
-  //     if (session.content === '天王盖地虎') {
-  //         session.send('宝塔镇河妖');
-  //     }
-  // });
-
-  // // 当有好友请求时，接受请求并发送欢迎消息
-  // ctx.on('friend-request', async (session) => {
-  //     // session.bot 是当前会话绑定的机器人实例
-  //     await session.bot.handleFriendRequest(session.messageId, true)
-  //     await session.bot.sendPrivateMessage(session.userId, '很高兴认识你！')
-  // })
-
-  // 中间件：中间件可以对于事件有更复杂的控制
-
-  // // 如果收到“天王盖地虎”，就回应“宝塔镇河妖”
-  // ctx.middleware((session, next) => {
-  //   if (session.content === '天王盖地虎') {
-  //     return '宝塔镇河妖'
-  //   } else {
-  //     // 如果去掉这一行，那么不满足上述条件的消息就不会进入下一个中间件了
-  //     return next()
-  //   }
-  // })
 
   ctx.middleware(
     async (session, next) => {
