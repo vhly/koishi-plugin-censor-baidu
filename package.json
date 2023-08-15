@@ -1,7 +1,10 @@
 {
   "name": "koishi-plugin-censor-baidu",
-  "description": "Content Censor with Baidu",
-  "version": "0.0.1",
+  "description": "Content censor middleware with Baidu ContentCensor service for koishi bot",
+  "version": "0.0.2",
+  "contributors": [
+    "Zhang Xiaohe <vhly@163.com>"
+  ],
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "files": [
@@ -13,9 +16,21 @@
   "keywords": [
     "chatbot",
     "koishi",
-    "plugin"
+    "plugin",
+    "Content censor"
   ],
   "peerDependencies": {
     "koishi": "^4.14.1"
+  },
+  "dependencies": {
+    "baidu-aip-sdk": "^4.16.12"
+  },
+
+  "koishi": {
+    "description": {
+      "en": "Content censor middleware with Baidu ContentCensor service",
+      "zh": "百度内容审核服务中间件"
+    },
+    "locales": ["en", "zh"]
   }
 }
