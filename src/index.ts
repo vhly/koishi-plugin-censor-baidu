@@ -9,6 +9,7 @@ export interface Config {
   api_key: string,
   api_secret: string,
   alert_message?: string,
+  delete_message?: boolean,
 }
 
 export const Config: Schema<Config> = Schema.object({
@@ -16,6 +17,7 @@ export const Config: Schema<Config> = Schema.object({
   api_key: Schema.string().required(true).description('API Key'),
   api_secret: Schema.string().required(true).description('API Secret'),
   alert_message: Schema.string().default('没有看懂你要的内容 ^_^ :(').description('内容不合规提示信息'),
+  delete_message: Schema.boolean().default(true).description('删除违规消息'),
 })
 
 export function apply(ctx: Context, config:Config) {
@@ -31,6 +33,13 @@ export function apply(ctx: Context, config:Config) {
           if (1 == data.conclusionType){
             return next();
           }else{
+            if(config.delete_message){
+              if(session.messageId){
+                if(session.channelId){
+                  session.bot.deleteMessage(session.channelId, session.messageId)
+                }
+              }
+            }
             session.send(config.alert_message);
             return config.alert_message
           }

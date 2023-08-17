@@ -1,7 +1,7 @@
 {
   "name": "koishi-plugin-censor-baidu",
   "description": "Content censor middleware with Baidu ContentCensor service for koishi bot",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "contributors": [
     "Zhang Xiaohe <vhly@163.com>"
   ],
